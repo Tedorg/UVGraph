@@ -30,6 +30,7 @@ logs/*.log
 dist/
 build/
 
+
 # Coverage directory used by testing tools
 coverage/
 
@@ -37,6 +38,7 @@ coverage/
 tmp/
 temp/
 *.tmp
+archive*
 
 # IntelliJ IDEA files
 .idea/
@@ -47,7 +49,7 @@ temp/
 # Test directories
 test/
 tests/
-
+cypress/
 # Debugging files
 debug/
 
