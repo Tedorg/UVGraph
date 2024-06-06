@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css" />
+
+
+
+    <style>
+        .loading {
+            opacity: 0.6;
+        }
+
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+    <title>Diagramm</title>
+</head>
+
+<body>
+
+    <main class="container">
+        <h2>Licht und Daten Diagramm</h2>
+
+
+        <section class="pico">
+
+            <form id="dataForm">
+                <div class="grid">
+                    <div> <input data-tooltip="Gebe die gemessene Distanz ein, sie muss zwischen 0 und 150 cm liegen"
+                            id="distanceInput" type="number" name="number"
+                            placeholder="Distanz in cm (Werte zwischen 0 und 150)" aria-label="Number" min="0" max="150"
+                            step="0.01" />
+                        <span id="distanceError" class="error">Distanz kann nicht leer sein</span><br>
+
+                        <input data-tooltip="Gebe den gemessenen UV-Wert ein, er muss zwischen 0 und 1013 liegen"
+                            id="valueInput" type="number" name="number" placeholder="Messwert Sensor"
+                            aria-label="Number" min="0" max="1024" />
+
+                        <span id="valueError" class="error">Messwert kann nicht leer sein</span><br>
+                    </div>
+                    <div>
+                        <button data-tooltip="fügt die eingegebenen Daten in das Diagramm ein" type='submit'
+                            aria-busy="false" aria-label="Please wait…" id="buttonSend" class=" secondary pico-background-jade-400
+                            " style="max-width: fit-content;">Daten
+                            hinzufügen</button>
+                        <button data-tooltip="Löscht den letzten Datensatz aus dem Speicher und dem Diagramm"
+                            type='button' aria-busy="false" aria-label="Please wait…" id="buttonRemove"
+                            class="contrast">Datenpunkt
+                            entfernen
+                        </button>
+                        <button type='button' aria-busy="false" aria-label="Please wait…" id="switchGetMean"
+                            class="contrast" style="max-width: fit-content;"
+                            tooltip="Lädt den Datensatz aus der Tabelle mit den Durschnittswerte deiner Gruppe ">Lade
+                            aktuelle Durchnittswerte
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- data-tooltip="Lädt die Mittelwerte aller Daten, die von deiner Gruppe eingegeben wurden" -->
+
+            </form>
+        </section>
+        <div style="max-height:70% ;" id="graph">
+        </div>
+
+        <section class="container" style="margin-top: 2em;">
+            <details>
+                <summary>Lade Durschnittswerte?</summary>
+                Hier werden die aktuellen Durchschnittswerte deiner Gruppe / Klasse in das Diagramm geladen.
+                Deine Werte sind in den Durchschnittswerten enthalten. Mit dieser Funktion kannst du dein Diagramm
+                vergleichen.
+            </details>
+
+
+
+            <details>
+                <summary>Was ist die Signalstärke Sensor?</summary>
+                Die Einheit der Messwerte ist eine relative digitale Zahl (zwischen 0 und 1023), die das Verhältnis
+                zur maximalen Spannung (normalerweise die Referenzspannung des Mikrocontrollers) darstellt.
+
+                Falls die Referenzspannung (V_ref) des Mikrocontrollers beispielsweise 5 Volt beträgt, dann kann der
+                Wert 0 0 Volt und der Wert 1023 5 Volt entsprechen. Der Wert 511.5 würde dann ungefähr 2.5 Volt
+                darstellen.
+
+                Die Einheit des digitalen ADC-Werts ist also nicht direkt eine physikalische Einheit wie Volt, sondern
+                eine skalierte, dimensionslose Zahl, die aus der Analog-zu-Digital-Umwandlung resultiert.
+            </details>
+
+            <hr />
+
+            <details open>
+                <summary>Liste deiner Datenpunkte</summary>
+                <div id="table">
+                    <small>...noch keine Datenpunkte</small>
+                </div>
+
+            </details>
+            <small>
+
+
+            </small>
+
+
+        </section>
+        <!-- ./ Styled -->
+        <!-- <fieldset data-theme="dark">
+            <input style="width: 50%;" id="distanceInput" type="number" name="number" placeholder="Number"
+                aria-label="Number" value="0" /><span style="margin-left:10px;">cm</span>
+            <input style="width: 50%;" id="valueInput" type="number" name="number" placeholder="Number"
+                aria-label="Number" value="0" /><span style="margin-left:10px;">Messwert</span>
+        </fieldset>
+        <fieldset data-theme="dark">
+            <button style="" id="buttonSend" class="contrast">Add Data</button>
+            <button style="" id="buttonRemove" class="contrast">Remove Data</button>
+        </fieldset>
+
+        <fieldset>
+            <label>
+                <input id="switchGetMean" name="terms" type="checkbox" role="switch" />
+                Zeige Mittelwerte aller Messungen
+            </label>
+
+        </fieldset> -->
+
+        <!-- <canvas id="myChart"></canvas> -->
+
+    </main>
+
+    <script src="bundle.js"></script>
+
+</body>
+
+</html>

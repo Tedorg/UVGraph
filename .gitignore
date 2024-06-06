@@ -1,0 +1,59 @@
+# Node.js dependencies
+node_modules/
+# Optional npm cache directory
+.npm
+# dotenv environment variables file
+.env
+# Local environment configuration
+.env.local
+# Production environment variables file
+.env.production
+# Debug log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# macOS files
+.DS_Store
+
+# Docker files
+docker-compose.override.yml
+docker-compose.local.yml
+.docker/
+.dockerignore
+
+# Log files
+logs
+*.log
+logs/*.log
+
+# Build directories
+dist/
+build/
+
+# Coverage directory used by testing tools
+coverage/
+
+# Temporary files and directories
+tmp/
+temp/
+*.tmp
+
+# IntelliJ IDEA files
+.idea/
+
+# VSCode files
+.vscode/
+
+# Test directories
+test/
+tests/
+
+# Debugging files
+debug/
+
+# Generated lock files
+package-lock.json
+yarn.lock
+
+# Others
+credentials.json
